@@ -4,7 +4,7 @@
   "description": "Auction seeding and deletion tool",
   "main": "cli.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node app.js",
     "seed": "node cli.js seed",
     "delete": "node cli.js delete"
   },

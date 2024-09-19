@@ -6,8 +6,7 @@ const auctionItemSchema = new mongoose.Schema({
   start_price: { type: Number, required: true },
   reserve_price: { type: Number, required: true }
 }, {
-  collection: 'auctions', // Explicitly specify the collection name
-  versionKey: false // Disable the __v field
+  collection: 'auctions', 
 });
 
 const AuctionItem = mongoose.model('AuctionItem', auctionItemSchema);

@@ -1,14 +1,18 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const Auction = require('../models/auctionItem');
 const data = require('../data/auctions.json');
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/auctionDB', {
+// Load environment variables from .env file
+dotenv.config();
+
+// Connect to MongoDB using URI from environment variables
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 .then(() => console.log('MongoDB connected'))
-.catch(err => console.log(err));
+.catch(err => console.log('Error connecting to MongoDB:', err));
 
 // Seed data into MongoDB
 const seedData = async () => {
@@ -23,3 +27,4 @@ const seedData = async () => {
 };
 
 seedData();
+

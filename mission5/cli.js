@@ -1,9 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv');
 
-// MongoDB connection URL
-const url = 'mongodb://localhost:27017';
+dotenv.config();
+
+// MongoDB connection URL from .env
+const url = process.env.MONGO_URI;
 const dbName = 'auctionDB';
 
 // Load the data file
